@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>JavaScript</title>
+		<style>
+		body {
+    background: #202020;
+    color: white;
+}
+button {
+    width: 100px;
+    height: 50px;
+    border: 3px soldi white;
+    border-radius: 50px;
+    background: #202020;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+#stopwatch {
+    font-size: 100px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+#buttons {
+    position: absolute;
+    top: 55%;
+    left: 48.4%;
+    transform: translate(-51.6%, -45%);
+}
+#buttonss {
+    position: absolute;
+    top: 65%;
+    left: 5%;
+    transform: translate(-51.6%, -45%);
+}
+#ull li{
+font-size : 25px;
+padding:5px;
+}
+#buttonss li {
+    padding-left: 10px;
+	color: white;
+}
+#buttons li {
+    display: inline;
+    padding-left: 10px;
+}
+		</style>
+		</head>
+    <body onload="reload()">
+        <div id="stopwatch">
+            
+        </div>
+
+        <ul id="buttons">
+            <li><button onclick="startTimer()">Start</button></li>
+            <li><button onclick="stopTimer()">Stop</button></li>
+            <li><button onclick="Lap()">Lap</button></li>
+            <li><button onclick="resetTimer()">Reset</button></li>
+			<li><button onclick="clearlogs()">Clear Laps</button></li>
+        </ul>
+		<h1>Laps</h1>
+		<ul id="ull">
+            
+            
+        </ul>
+		
+		
+
+        <script src="main.js"></script>
+    </body>
+</html>
