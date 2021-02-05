@@ -1,4 +1,7 @@
- exports.getAllUser = (req,res)=>{
+const express = require("express");
+
+
+exports.getAllUser = (req,res)=>{
     res.status(500).json({
         status : "err",
         message : "not defined"
