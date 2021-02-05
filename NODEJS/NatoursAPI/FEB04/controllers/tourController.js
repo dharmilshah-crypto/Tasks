@@ -49,12 +49,14 @@ const tour = tours.find(el => (el.id == id));
 }
 
    exports.deleteTour = (req,res)=>{
-       if(req.params.id * 1 > tours.length){
+    //    let a = parse.Int(req.params.id) 
+    //    console.log(req.params.id + 1 + "hi");
+    //    if(a > tours.length){
     res.status(200).json({
         staus : "deleted"
     })
 }
-}
+// }
 
 exports.updateTour = (req,res)=>{
     res.status(200).json({
