@@ -5,7 +5,10 @@ const Tour = require('./../models/tourModel');
 //   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 // );
 
+
+
 exports.getAllTours =async (req,res)=>{
+ 
  try{
 //   console.log(req.url);
 //    const queryObj = {...req.query}
@@ -48,7 +51,7 @@ const queryObj = { ...req.query }
 let queryStr = JSON.stringify(queryObj);
 queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
 
-
+console.log(Tour.find())
 let query = Tour.find(JSON.parse(queryStr))
 //sorting
 if(req.query.sort)
@@ -56,15 +59,15 @@ if(req.query.sort)
    const sortBy = req.query.sort.split(',').join(' ');
   query = query.sort(sortBy)
 }
-//  else{
-//   query=query.sort('createdAt')
-//  }
+ else{
+  query=query.sort('createdAt')
+ }
 
 //fieldlimiting
 if (req.query.fields)
 {
   const fields = req.query.fields.split(',').join(' ');
-  console.log(fields);
+  // console.log(fields);
   query=query.select(fields);
 }
 //  else{
@@ -75,7 +78,7 @@ if (req.query.fields)
 const page = req.query.page * 1 || 1;
 const limit = req.query.limit * 1 || 100;
 const skip = (page*limit)-limit;
-query = query.skip(skip).limit(limit);
+query = Tour.find().skip(skip).limit(limit);
 
 if(req.query.page)
 {
@@ -84,7 +87,7 @@ if(req.query.page)
 }
 //execute
 const tours = await query;
-
+console.log(tours);
   res.status(200).json({
       status : 'success',
       result : {
