@@ -7,54 +7,46 @@ const xlsx = require('node-xlsx')
 const excel = require('./model')
 const xls = require('excel')
 let arr = []
+let obj ={}
 
 
  const outbound = xlsx.parse('./Outbound.xlsx')
-//  console.log(outbound);
-// fs.writeFileSync('test.json',outbound)
-// const data = fs.readFileSync('test.json','utf-8')
-
-// xls('Outbound.xlsx', function(err, data) {
-//   if(err) throw err;
-//     // data is an array of arrays
-// });
 
 function convertToJSON(array)
  {
-  // console.log(array[0].data[0])
-  
   const x1 = [...array[0].data[0]];
-   let len = [...array[0].data]
-   console.log(len.length);
-  
-    let x2 = [...array[0].data[5]];
-    console.log(x2)
-    
-   let obj ={}
+   let len = [...array[0].data]  
+    let x2
+    console.log(x1);
 
-  
-// for(let a=0;a<x1.length;a++){
+    for(let a=1;a<103;a++)
+    {
+       x2 = [...array[0].data[a]];
+
+      for(let b=0;b<x1.length;b++)
+      {
+        let temp = x1[b].toLowerCase()
+        obj[temp]=[x2[b]];
+      }
+      
+      arr.push(obj)
+    }
+    // console.log(arr);
+ }
+ 
 
 
-  
+ convertToJSON(outbound)
+// for(let a=0;a<x1.length;a++){  
 //     obj[x1[a]] = [x2[a]]
-      
-      
-  
-
 // arr.push(obj)
-
 //  }
 // console.log(arr);
-
-  }
   // const x2 = array[0].data[1];
-  
   // console.log(obj);
   // var first = array[0].join();
   // console.log(array);
   // var headers = first.split(',');
-
   // var jsonData = [];
   // for ( var i = 1, length = array.length; i < length; i++ )
   // {
@@ -71,7 +63,7 @@ function convertToJSON(array)
 
   // }
   // return jsonData;
- convertToJSON(outbound)
+ 
 // console.log(data);
 // xlsx('tasks.xlsx', function(err,data) {
 //   if(err) throw err;
@@ -82,26 +74,27 @@ function convertToJSON(array)
 
 
  
-// const insert = async ()=>{
-//     try{
-//     await excel.create(outbound.data);
-//     console.log("added successfully")
-//     }
-//     catch(err){ 
-//       console.log(err.message)
-//     }
-  // console.log('uploaded successfully')
+const insert = async ()=>{
+    try{
+    await excel.create(arr);
+    console.log("added successfully")
+    }
+    catch(err){ 
+      console.log(err.message)
+    }
+  console.log('uploaded successfully')
+}
     
    
 
 
 // console.log(data)
-// mongo.connect('mongodb+srv://User:User2304-@cluster0.n0ujr.mongodb.net/tasksdb?retryWrites=true&w=majority',{
-//   useNewUrlParser:true,
-//   useUnifiedTopology: true,
-// }).then(()=>{
-//   console.log("successful connection to database");
-//  insert();
-// }).catch(err=>{
-//   console.log("error occured while connecting to database");
-// })
+mongo.connect('mongodb+srv://User:User2304-@cluster0.n0ujr.mongodb.net/tasks?retryWrites=true&w=majority',{
+  useNewUrlParser:true,
+  useUnifiedTopology: true,
+}).then(()=>{
+  console.log("successful connection to database");
+ insert();
+}).catch(err=>{
+  console.log("error occured while connecting to database");
+})
