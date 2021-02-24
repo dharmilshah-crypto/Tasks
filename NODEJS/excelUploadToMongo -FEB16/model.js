@@ -53,6 +53,5 @@ const excelSchema = new mongo.Schema({
 "net oil\n(m3 @ 15c)":{type : Number},
 "total vol\n(m3 @ 15c)":{type : Number}
 })
-const excel =  mongo.model('d',excelSchema)
-console.log(excelSchema.path);
+const excel =  mongo.model('excellData',excelSchema)
 module.exports = excel
