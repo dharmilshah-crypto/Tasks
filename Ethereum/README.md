@@ -18,3 +18,10 @@ Chapter 6 :Transactions : - definition of these terms nonce ,gas ,gas price,reci
 
 Chapter 7: 'Smart Contracts and Solidity'  :- smart contract is a computer program but only starts its execution after a transaction is started,
 solidity basics like data types,global variables ,functions ,keywords , constructor and selfdestruct , contract inheritance ,basics of error handling,events, emit,gas concepts.
+
+Chapter 9: 'Smart Contract Security' : - security best practices ,many different vulnerablilities ,many different preventative techniques ,self destruct,still a lot to learn here
+
+Chapter 10: 'Tokens':- uses of tokens , fungibility , counter party risks,utility and equity ,erc20 standard and its issues , erc223 
+,erc777
+
+Chapter 11: 'Oracles' :- need ,uses ,examples ,design patterns , data authentications
