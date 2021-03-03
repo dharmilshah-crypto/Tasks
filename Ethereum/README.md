@@ -24,4 +24,10 @@ Chapter 9: 'Smart Contract Security' : - security best practices ,many different
 Chapter 10: 'Tokens':- uses of tokens , fungibility , counter party risks,utility and equity ,erc20 standard and its issues , erc223 
 ,erc777
 
-Chapter 11: 'Oracles' :- need ,uses ,examples ,design patterns , data authentications
+Chapter 11: 'Oracles' :- need ,uses ,examples ,design patterns , data authentications,oracle is basically used to do database operations outside the chain,data authentication
+
+Chapter 12: 'Decentralized Applications (DApps)' :- dapp is a software which is almost mostly decentralized that is its not dependent on just one entity and different properties of dapps , swarm and ipfs ,ethereum name service is like domain name service which is  a decentralized name providing service,ens resolver
+
+Chapter 13: 'The Ethereum Virtual Machine' :- ethereum states,smart contracts and its deployment code is seperate ,turing completeness ,gas concepts,gas cost and gas price,negative gas cost,block gas limit 
+
+Chapter 14: 'Consensus' : - consensus ,a proving algorithm in a decentralized system,proof of work ,proof of stake,ethash ,casper
