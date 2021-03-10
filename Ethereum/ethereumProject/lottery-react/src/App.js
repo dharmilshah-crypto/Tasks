@@ -1,0 +1,31 @@
+import logo from './logo.svg';
+import React ,{Component} from 'react';
+import './App.css';
+import web3 from './web3'
+import lottery from './lottery'
+
+
+class App extends Component {
+  
+  constructor(props){
+    super(props)
+    this.state = {manager : ''}
+    console.log("hello")
+  }
+  // web3.eth.getAccounts().then(console.log)  
+   async componentDidMount() {
+    const manager = await lottery.methods.manager().call()
+        console.log(manager)
+
+    this.setState({manager})
+
+  }
+  render(){
+  return (
+   <div>
+     <h2>Lottery Contract</h2>
+     <p> This Contract is managed by {this.state.manager}</p>
+   </div>  );
+}
+}
+export default App;

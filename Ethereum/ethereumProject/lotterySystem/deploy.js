@@ -1,8 +1,6 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
 const { interface, bytecode } = require("./compile");
-console.log(interface)
-console.log(bytecode)
 const provider = new HDWalletProvider(
   "stand drill mobile mean tent whip horror ritual truth lawn version alarm",
   "https://rinkeby.infura.io/v3/44274788c5da4c38ac096f248d577767"
@@ -18,6 +16,7 @@ const deploys = async () => {
       data: bytecode
     })
     .send({ gas: "2000000", from: accounts[0] });
+    console.log(interface)
   console.log("contract deployed to", result.options.address);
 };
 deploys();
